@@ -1,0 +1,39 @@
+{% extends 'products/base.html' %}
+{% load humanize %}
+
+{% block content %}
+  <section>
+    <div class="container pt-5">
+      <div class="text-center mt-5">
+        <h1>Заказ №{{ order.id }}</h1>
+        <div class="orders mt-5">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Название</th>
+              <th scope="col">Кол-во</th>
+              <th scope="col">Цена</th>
+              <th scope="col">Сумма</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for good in object.basket_history.purchased_items %}
+                <tr>
+                  <th scope="row">
+                    {{ good.name }}
+                  </th>
+                  <td>{{ good.quantity }}</td>
+                  <td>{{ good.price|floatformat:2|intcomma }} руб.</td>
+                  <td>{{ good.sum|floatformat:2|intcomma }} руб.</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+          <p class="float-right h4 mt-3">
+            Итого {{ order.basket_history.total_sum|floatformat:2|intcomma }} руб.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

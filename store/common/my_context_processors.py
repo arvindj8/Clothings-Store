@@ -2,10 +2,9 @@ from products.models import Basket
 
 
 def get_baskets(request):
-    user = request.user
     baskets = None
-    if user.is_authenticated:
-        baskets = Basket.objects.filter(user=user)
+    if request.user.is_authenticated:
+        baskets = Basket.objects.filter(user=request.user)
     else:
         return []
     return {'baskets': baskets}

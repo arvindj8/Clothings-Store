@@ -1,7 +1,7 @@
 from django.urls import path
 
-from products.views import (ProductsListView,  # Импортируем наш контролер
-                            basket_add, basket_remove)
+from products.views import ProductsListView  # Импортируем наш контролер
+from products.views import basket_add, basket_remove
 
 app_name = 'products'  # Вызываем явно urlpatterns products
 
