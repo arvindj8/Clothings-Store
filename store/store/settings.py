@@ -111,11 +111,11 @@ CACHES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'store_db',
-        'USER': 'store_user',
-        'PASSWORD': 'gamayoon',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT'),
     }
 }
 
@@ -174,10 +174,10 @@ LOGOUT_REDIRECT_URL = 'index'
 
 # Sending emails
 
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'a.buklov18@yandex.ru'
-EMAIL_HOST_PASSWORD = 'store-shop-clothings'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -185,7 +185,6 @@ EMAIL_USE_SSL = True
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
@@ -206,9 +205,9 @@ CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 
 # Stripe
 
-STRIPE_PUBLIC_KEY = 'pk_test_51MZa1FKMRCjgP0FtMyVD1T2z5DvtqY5ZAdP3zPEIDyxLxbcAruja2rTjTcZFN3BYGkMAGw3D2BUGjkxcxwB1645100yL3tzFsN'
-STRIPE_SECRET_KEY = 'sk_test_51MZa1FKMRCjgP0FtiKJpiPvj5KbrXR8CJ1WdrGys1VJ5gUUXdVpGsbHgsnYr5CdwMm9DtKv4zPMG8KHtxXye6vz900AhlrhZIr'
-STRIPE_WEBHOOK_SECRET = 'whsec_edf531d0a0d146e7cfdbfa7a6a01aa7f4d1e17c6b4a8b313589a9d5b1af0c5f0'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
 
 # Django REST Framework
 
