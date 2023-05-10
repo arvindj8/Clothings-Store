@@ -32,8 +32,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('webhook/stripe/', stripe_webhook_view, name='stripe_webhook'),
-    path('api/', include('api.urls', namespace='api')),
-    path('api-token-auth/', obtain_auth_token)
 ]
 
 if settings.DEBUG:
