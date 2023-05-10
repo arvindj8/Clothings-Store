@@ -54,8 +54,7 @@ INSTALLED_APPS = [
 
     'products',
     'orders',
-    'users',
-    'api',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -175,7 +174,7 @@ LOGOUT_REDIRECT_URL = 'index'
 # Sending emails
 
 EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_PORT = 465
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
