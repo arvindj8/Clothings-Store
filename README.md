@@ -37,6 +37,16 @@ This project implements the following functionality:
 ## Run project
 ### `python manage.py runserver`
 
+## Run migrations
+### `python manage.py makemigrations`
+### `python manage.py migrate`
+
+## Run Redis (Global)
+### `redis-server`
+
+## Run Celery
+### `celery -A store worker -l INFO`
+
 
 ## Requirements
 ```
@@ -80,5 +90,4 @@ stripe==5.1.1
 urllib3==1.26.14
 vine==5.0.0
 wcwidth==0.2.6
-
 ```
